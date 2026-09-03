@@ -1,0 +1,45 @@
+.prestige {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 30px 20px;
+  background-color: #e5ded5;
+  flex-wrap: wrap; /* ✔ permite que bajen en mobile */
+}
+
+.card {
+  width: 30%;
+  background: #013565; /* ✔ nuevo color */
+  color: #fdb604; /* ✔ nuevo color */
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 2px solid #fdb604; /* ✔ borde elegante */
+  justify-items: center;
+}
+
+.card svg {
+  fill: #fff;
+}
+
+.card p {
+  color: white
+}
+
+.card:hover {
+  transform: scale(1.08) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .prestige {
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* ✔ ocupa el 90% */
+    margin-bottom: 20px;
+  }
+}

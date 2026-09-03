@@ -1,0 +1,70 @@
+.categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 10px 5px;
+}
+
+.category {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: transform 0.4s ease;
+  width: auto;
+  height: 260px;
+}
+
+.category img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 🔥 Overlay que cubre toda la imagen */
+.overlay {
+  position: absolute;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  background: rgba(0, 0, 0, 0.45); /* negro con opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Texto centrado */
+.overlay h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* 📱 TABLET EN ADELANTE */
+@media (min-width: 768px) {
+  .categories {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 260px);
+    gap: 10px;
+  }
+
+  .category {
+    width: auto;
+    height: auto;
+  }
+
+  /* Última categoría ocupa 2 filas y se queda en la columna 3 */
+  .category:last-child {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+  .categories {
+    grid-template-rows: repeat(2, 300px);
+  }
+
+  .overlay h2 {
+    font-size: 2rem;
+  }
+}

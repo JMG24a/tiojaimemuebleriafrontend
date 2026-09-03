@@ -1,0 +1,84 @@
+.furnitureSection {
+  padding: 40px 10px;
+}
+
+.furnitureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 15px;
+}
+
+.furnitureCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.furnitureCard:hover {
+  transform: scale(0.97);
+}
+
+.furnitureCard img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+
+.furnitureCard:hover img {
+  transform: scale(1.05);
+}
+
+.furnitureCard h3 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 2560px */
+@media (max-width: 2560px) {
+  .furnitureGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .furnitureCard img {
+    height: 580px;
+  }
+}
+
+/* 1440px */
+@media (max-width: 1440px) {
+  .furnitureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .furnitureCard img {
+    height: 350px;
+  }
+}
+
+/* 769px */
+@media (max-width: 769px) {
+  .furnitureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .furnitureCard img {
+    height: 250px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .furnitureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .furnitureCard img {
+    height: 190px;
+  }
+}
