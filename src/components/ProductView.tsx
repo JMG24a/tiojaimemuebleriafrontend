@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import styles from "./productPage.module.css";
-import MethodPaySelect from "./methodPaySelect";
-import LocationSelect from "./locationSelect";
+import MethodPaySelect from "./MethodPaySelect";
+import LocationSelect from "./LocationSelect";
 import BuyButton from "./BuyButton";
 
 export default function ProductView({

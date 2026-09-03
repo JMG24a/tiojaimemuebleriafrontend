@@ -54,13 +54,13 @@ export default function Header() {
         </div>
 
         <nav className={styles.sidebarMenu}>
-          <a href="/products?category=sofas">Muebles</a>
-          <a href="/products?category=dormitorios">Dormitorios</a>
-          <a href="/products?category=comedores">Comedores</a>
-          <a href="/products?category=multimuebles">Multimuebles</a>
-          <a href="/products?category=colchones">Colchones</a>
-          <a href="/products?category=accesorios">Accesorios</a>
-          <a href="/products?category=ofertas">Ofertas</a>
+          <a href="/products/muebles">Muebles</a>
+          <a href="/products/dormitorios">Dormitorios</a>
+          <a href="/products/comedores">Comedores</a>
+          <a href="/products/multimuebles">Multimuebles</a>
+          <a href="/products/colchones">Colchones</a>
+          <a href="/products/accesorios">Accesorios</a>
+          <a href="/products/ofertas">Ofertas</a>
           <a href="https://wa.me/584120521922">Contacto de ayuda</a>
           <a href="https://wa.me/584120521922">Buzón de quejas</a>
         </nav>
