@@ -7,7 +7,22 @@ import ProductCard from "./ProductCard";
 import styles2 from "./ProductCard.module.css";
 import CreateProductModal from "./CreateProductModal";
 
-export default function ProductsGrid({ products, category, methodPay }) {
+interface TypeMethod {
+  cashea: number
+}
+
+type Product = {
+  category: string;
+  modelo: string;
+  precio: string;
+  sku: string;
+  images: string;
+  descripcion: string;
+};
+
+type Products = Product[];
+
+export default function ProductsGrid({ products, category, methodPay }: { products: Products; category: string, methodPay: TypeMethod }) {
   const [openModal, setOpenModal] = useState(false);
 
   function downloadExcel() {

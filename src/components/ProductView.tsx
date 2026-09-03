@@ -6,6 +6,10 @@ import MethodPaySelect from "./MethodPaySelect";
 import LocationSelect from "./LocationSelect";
 import BuyButton from "./BuyButton";
 
+interface TypeMethod {
+  cashea: number
+}
+
 export default function ProductView({
   product,
   images,
@@ -13,7 +17,7 @@ export default function ProductView({
 }: {
   product: any;
   images: string[];
-  methodPay: {}
+  methodPay: TypeMethod
 }) {
   const [heroImage, setHeroImage] = useState(images[0]);
   const [location, setLocation] = useState({

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ product, category, methodPay }: { product: any; category: string, methodPay: {} }) {
+interface TypeMethod{
+  cashea: number
+}
+
+export default function ProductCard({ product, category, methodPay }: { product: any; category: string, methodPay: TypeMethod }) {
 
   const images = product.images.split("|");
   const base = Number(product.precio);

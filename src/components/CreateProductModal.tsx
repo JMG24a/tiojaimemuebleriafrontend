@@ -4,7 +4,9 @@ import { useState } from "react";
 import styles from "./createProductModal.module.css";
 import ExcelUpload from "./ExcelUpload";
 
-export default function CreateProductModal({ onClose }) {
+export default function CreateProductModal({ onClose }: {
+  onClose: () => void;
+}) {
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -18,7 +20,9 @@ export default function CreateProductModal({ onClose }) {
 
   const [imageList, setImageList] = useState<string[]>([]);
 
-  function handleChange(e) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     setForm({
       ...form,
       [e.target.name]: e.target.value
@@ -42,7 +46,9 @@ export default function CreateProductModal({ onClose }) {
     return json.secure_url;
   }
 
-  async function handleImageSelect(e) {
+  async function handleImageSelect(
+    e: React.ChangeEvent<HTMLInputElement>
+  ) {
     const file = e.target.files?.[0];
     if (!file) return;
 

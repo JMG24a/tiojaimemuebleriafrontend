@@ -1,4 +1,4 @@
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/Carousel";
 import Prestige from "../components/Prestige";
 import Categories from "../components/Categories";
 
