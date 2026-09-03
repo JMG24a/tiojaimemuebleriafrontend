@@ -34,6 +34,8 @@
 .info {
   padding: 15px 10px;
   text-align: center;
+  background: #013565; /* ✔ nuevo color */
+  color: #fdb604; /* ✔ nuevo color */
 }
 
 .title {
@@ -46,5 +48,5 @@
 .price {
   font-size: 1rem;
   font-weight: 500;
-  color: #444;
+  color: wheat;
 }
