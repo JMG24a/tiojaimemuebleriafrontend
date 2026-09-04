@@ -99,6 +99,7 @@ import LocationSelect from "./LocationSelect";
 import BuyButton from "./BuyButton";
 import { cloudinary } from "@/lib/cloudinary";
 import { Product } from "@/types/product";
+import EditProductModal from "./EditProductModal";
 
 export default function ProductViewClient({
   product,
@@ -123,6 +124,7 @@ export default function ProductViewClient({
 
   const [price, setPrice] = useState(casheaPrice);
   const [priceChanged, setPriceChanged] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
 
   // Animación del precio
   useEffect(() => {
@@ -210,6 +212,22 @@ export default function ProductViewClient({
           sede={location}
           heroImage={heroImage}
         />
+
+        <button
+          className={styles.editButton}
+          onClick={() => setOpenEdit(true)}
+        >
+          Editar producto
+        </button>
+
+        {openEdit && (
+          <EditProductModal
+            product={product}
+            images={images}
+            onClose={() => setOpenEdit(false)}
+          />
+        )}
+
 
         {/* <p className={styles.description}>{product.descripcion}</p> */}
       </div>

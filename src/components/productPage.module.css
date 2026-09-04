@@ -109,3 +109,13 @@
 .heroImage img {
   transition: opacity 0.3s ease;
 }
+
+.editButton {
+  background: #013565;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin: 20px 0;
+}
