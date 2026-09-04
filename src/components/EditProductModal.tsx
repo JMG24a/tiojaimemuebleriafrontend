@@ -37,7 +37,7 @@ export default function EditProductModal({
       images: imageList.join("|")
     };
 
-    await fetch(`/api/products/${product.sku}`, {
+    await fetch(`/api/products/${product.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
