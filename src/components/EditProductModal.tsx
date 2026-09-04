@@ -31,11 +31,13 @@ export default function EditProductModal({
 
   async function saveChanges() {
     const payload = {
+      id: product.id,
       modelo,
       precio,
       descripcion,
       images: imageList.join("|")
     };
+    console.log("🚀 ~ saveChanges ~ payload:", payload)
 
     await fetch(`/api/products/${product.id}`, {
       method: "PUT",

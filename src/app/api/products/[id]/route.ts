@@ -6,19 +6,21 @@ export async function PUT(
 ) {
   try {
     const { id } = await params; // ✔ Next.js exige esto
+    console.log("🚀 ~ PUT ~ id:", id)
 
     const body = await req.json();
 
     const res = await fetch(
       `https://tjm-web-back.onrender.com/products/${id}`,
       {
-        method: "PUT",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       }
     );
 
     const data = await res.json();
+    console.log("🚀 ~ PUT ~ data:", data)
     return NextResponse.json(data);
   } catch (error) {
     console.error("PUT /api/products/[id] error:", error);
