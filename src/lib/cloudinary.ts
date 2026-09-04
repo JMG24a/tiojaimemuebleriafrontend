@@ -13,3 +13,9 @@ export function cloudinaryUrl(src: string, width = 800, quality = 70) {
   }
   return src;
 }
+
+// lib/cloudinary.ts
+export function cloudinary(url: string, w = 1200, q = 70) {
+  if (!url.includes("/upload/")) return url;
+  return url.replace("/upload/", `/upload/f_auto,q_${q},w_${w}/`);
+}

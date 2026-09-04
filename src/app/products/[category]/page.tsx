@@ -1,5 +1,6 @@
 import ProductHero from "@/components/ProductHero";
 import ProductsGrid from "@/components/ProductsGrid";
+import ProductsGridClient from "@/components/ProductsGridClient";
 
 async function getMethodPay() {
   const ids = [1, 2, 3, 4];

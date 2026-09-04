@@ -41,8 +41,8 @@ export default function BuyButton({
       style={{
         marginTop: "20px",
         padding: "14px 20px",
-        background: "#4a7cff",
-        color: "white",
+        background: "#013565",
+        color: "#fdb604",
         borderRadius: "10px",
         border: "none",
         fontSize: "1.1rem",

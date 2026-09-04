@@ -5,13 +5,22 @@
 }
 
 /* HERO IMAGE (50vh) */
-.heroImage {
+/* .heroImage {
   width: 100%;
   height: 50vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+} */
+
+.heroImage {
+  position: relative;        /* necesario para next/image fill */
+  width: 100%;
+  height: 50vh;          /* ajusta el alto que quieras */
+  overflow: hidden;          /* evita desbordes */
+  border-radius: 10px;       /* opcional */
 }
+
 
 /* PRODUCT INFO (50vh) */
 .productInfo {
@@ -58,4 +67,45 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* productPage.module.css */
+.priceAnimated {
+  transition: all 0.25s ease;
+  transform: scale(1);
+  color: #013565;
+}
+
+.priceAnimated.changed {
+  transform: scale(1.08);
+  color: #fdb604;
+}
+
+/* productPage.module.css */
+.priceBox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  opacity: 0.6;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.priceAnimated {
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: all 0.25s ease;
+}
+
+.priceAnimated.changed {
+  transform: scale(1.08);
+  color: #fdb604;
+}
+
+.heroImage img {
+  transition: opacity 0.3s ease;
 }

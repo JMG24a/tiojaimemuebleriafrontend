@@ -11,7 +11,7 @@ interface TypeMethod{
 
 export default function ProductCard({ product, category, methodPay }: { product: Product, category: string, methodPay: TypeMethod }) {
   const img = product.images?.split("|")[0] ?? "/placeholder.png";
-  const src = cloudinaryUrl(img, 800, 70);
+  const src = cloudinaryUrl(img, 400, 70);
   const base = Number(product.precio);
   const casheaPercent = Number(methodPay.cashea);
   const maxPrice = base + (base * casheaPercent / 100);
@@ -33,7 +33,7 @@ export default function ProductCard({ product, category, methodPay }: { product:
 
       <div className={styles.info}>
         <h3 className={styles.title}>{product.modelo}</h3>
-        <p className={styles.price}>{base}$ - ${maxPrice.toFixed(2)}BCV</p>
+        <p className={styles.price}>{base}$ - ${maxPrice.toFixed(0)}BCV</p>
       </div>
     </Link>
   );
