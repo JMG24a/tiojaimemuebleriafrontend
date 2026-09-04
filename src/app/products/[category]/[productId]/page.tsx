@@ -25,7 +25,9 @@ export default async function ProductPage({
 }: {
   params: Promise<{ category: string; productId: string }>;
 }) {
+  // ✔ Next.js 15: params es Promise
   const { category, productId } = await params;
+
   const methodPay = await getMethodPay();
 
   const res = await fetch(
@@ -38,5 +40,11 @@ export default async function ProductPage({
   const product = await res.json();
   const images = product.images.split("|");
 
-  return <ProductView product={product} images={images} methodPay={methodPay}/>;
+  return (
+    <ProductView
+      product={product}
+      images={images}
+      methodPay={methodPay}
+    />
+  );
 }
