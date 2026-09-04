@@ -6,19 +6,11 @@ import styles from "./productsGrid.module.css";
 import ProductCard from "./ProductCard";
 import styles2 from "./ProductCard.module.css";
 import CreateProductModal from "./CreateProductModal";
+import { Product } from "@/types/product";
 
 interface TypeMethod {
   cashea: number
 }
-
-type Product = {
-  category: string;
-  modelo: string;
-  precio: string;
-  sku: string;
-  images: string;
-  descripcion: string;
-};
 
 type Products = Product[];
 

@@ -1,25 +1,48 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./header.module.css";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const segments = pathname.split("/").filter(Boolean);
+
+  const isProductPage = segments.length === 3;
+  // products / muebles / 1  → 3 segmentos
+
+  const category = segments[1];
+  // muebles
 
   return (
     <>
-      {/* NAVBAR SUPERIOR */}
       <header className={styles.topNavbar}>
         <div className={styles.navRight}>
-          <button
-            className={styles.navToggle}
-            onClick={() => setOpen(true)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+
+          {/* SI ESTOY EN UN PRODUCTO → MOSTRAR BOTÓN VOLVER */}
+          {isProductPage ? (
+            <button
+              className={styles.navToggle}
+              onClick={() => router.push(`/products/${category}`)}
+            >
+              <img src="/image/atras.png" alt="volver" />
+            </button>
+          ) : (
+            /* SI NO → MOSTRAR HAMBURGUESA */
+            <button
+              className={styles.navToggle}
+              onClick={() => setOpen(true)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          )}
+
         </div>
 
         <div className={styles.navCenter}>

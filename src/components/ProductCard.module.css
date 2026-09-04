@@ -1,5 +1,7 @@
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 250px; /* ✔ altura fija para TODAS las cards */
   text-decoration: none;
   color: inherit;
   border-radius: 10px;
@@ -16,8 +18,9 @@
 
 .imageWrapper {
   width: 100%;
-  height: 175px;
+  height: 175px; /* ✔ altura fija */
   overflow: hidden;
+  flex-shrink: 0; /* ✔ evita que la imagen se achique */
 }
 
 .imageWrapper img {
@@ -32,10 +35,14 @@
 }
 
 .info {
-  padding: 15px 10px;
+  flex: 1; /* ✔ ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ✔ centra el texto */
+  padding: 5px 10px;
   text-align: center;
-  background: #013565; /* ✔ nuevo color */
-  color: #fdb604; /* ✔ nuevo color */
+  background: #013565;
+  color: #fdb604;
 }
 
 .title {
@@ -43,10 +50,22 @@
   font-weight: 600;
   margin-bottom: 6px;
   color: #fdb604;
+
+  /* ✔ evita que nombres largos rompan el layout */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .price {
   font-size: 1rem;
   font-weight: 500;
   color: wheat;
+
+  /* ✔ evita que el precio ocupe más de 1 línea */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
