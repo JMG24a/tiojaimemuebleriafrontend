@@ -80,7 +80,7 @@ export default function ProductFeatures({
   const features = getFeatures(category, product, price);
 
   return (
-    <ul style={{ margin: "10px", lineHeight: "1.8", fontSize: "1.0rem", color: "gray"}}>
+    <ul style={{ margin: "10px", lineHeight: "1.8", fontSize: "0.9rem", color: "gray"}}>
       {features.map((f, i) => (
         <li key={i}>{f}</li>
       ))}

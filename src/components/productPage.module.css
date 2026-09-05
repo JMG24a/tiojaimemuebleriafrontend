@@ -29,14 +29,14 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: black;
 }
 
 .price {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #444;
   margin-bottom: 20px;
@@ -56,8 +56,8 @@
 }
 
 .variantCard {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);

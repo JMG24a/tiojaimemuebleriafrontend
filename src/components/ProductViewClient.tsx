@@ -10,6 +10,7 @@ import { cloudinary } from "@/lib/cloudinary";
 import { Product } from "@/types/product";
 import EditProductModal from "./EditProductModal";
 import ProductFeatures from "./ProductFeatures";
+import { useSesion } from "@/hooks/useSesion";
 
 export default function ProductViewClient({
   product,
@@ -23,7 +24,7 @@ export default function ProductViewClient({
   methodPay: { cashea: number };
 }) {
   const [heroImage, setHeroImage] = useState(images[0]);
-
+  const activo = useSesion();
   const [location, setLocation] = useState({
     key: "San Pablo",
     label: "San Pablo",
@@ -128,12 +129,14 @@ export default function ProductViewClient({
           heroImage={heroImage}
         />
 
+      {activo &&
         <button
           className={styles.editButton}
           onClick={() => setOpenEdit(true)}
         >
           Editar producto
         </button>
+      }
 
         {openEdit && (
           <EditProductModal
