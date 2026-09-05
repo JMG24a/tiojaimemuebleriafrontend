@@ -10,7 +10,7 @@ export default function LoginPage() {
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
 
-    if (clave === process.env.NEXT_PUBLIC_CLAVEUSER) {
+    if (clave === "Tjm.catalog.26") {
       localStorage.setItem("sesion_activa", "activo");
       window.location.href = "/config"; // redirige a donde quieras
     } else {
