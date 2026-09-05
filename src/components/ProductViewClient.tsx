@@ -75,7 +75,7 @@ export default function ProductViewClient({
         <div className={styles.priceBox}>
           {price !== casheaPrice && (
             <span className={styles.oldPrice}>
-              {casheaPrice}$
+              {(casheaPrice).toFixed(0)}$
             </span>
           )}
 
@@ -84,7 +84,7 @@ export default function ProductViewClient({
               priceChanged ? styles.changed : ""
             }`}
           >
-            {price}$
+            {(price).toFixed(0)}$
           </span>
         </div>
 

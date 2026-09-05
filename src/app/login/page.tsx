@@ -12,7 +12,7 @@ export default function LoginPage() {
 
     if (clave === "Tjm.catalog.26") {
       localStorage.setItem("sesion_activa", "activo");
-      window.location.href = "/config"; // redirige a donde quieras
+      window.location.href = "/admin"; // redirige a donde quieras
     } else {
       setError("Clave incorrecta");
     }

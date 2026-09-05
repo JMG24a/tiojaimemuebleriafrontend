@@ -1,11 +1,11 @@
 .furnitureSection {
-  padding: 40px 10px;
+  padding: 25px 5px;
 }
 
 .furnitureGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px 15px;
+  gap: 10px 5px;
 }
 
 .furnitureCard {

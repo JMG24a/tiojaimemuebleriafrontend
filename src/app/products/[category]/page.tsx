@@ -1,5 +1,6 @@
 import ProductHero from "@/components/ProductHero";
 import ProductsGrid from "@/components/ProductsGrid";
+import ProductsGridGroup from "@/components/ProductsGridGroup";
 
 async function getMethodPay() {
   const ids = [1, 2, 3, 4];
@@ -37,7 +38,7 @@ export default async function CategoryPage({
   // ✔ Fetches normales, sin use()
   const methodPay = await getMethodPay();
   const products = await fetchProducts(category);
-
+  const isGrouped = category === "colchones" || category === "dormitorios";
   return (
     <>
       <ProductHero category={category} />
@@ -49,11 +50,21 @@ export default async function CategoryPage({
           </p>
         )}
 
-        <ProductsGrid
-          products={products}
-          category={category}
-          methodPay={methodPay}
-        />
+        {!isGrouped && (
+          <ProductsGrid
+            products={products}
+            category={category}
+            methodPay={methodPay}
+          />
+        )}
+
+        {isGrouped && (
+          <ProductsGridGroup
+            products={products}
+            category={category}
+            methodPay={methodPay}
+          />
+        )}
       </section>
     </>
   );

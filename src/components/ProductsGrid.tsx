@@ -16,12 +16,15 @@ export default function ProductsGrid({
     <section className={styles.furnitureSection}>
       <div className={styles.furnitureGrid}>
         {products.map((p, k) => (
-          <ProductCard
-          key={k}
-          category={category}
-          product={p}
-          methodPay={methodPay}
-          />
+          <>
+            <ProductCard
+              key={k}
+              category={category}
+              product={p}
+              isGroupedView={false}
+              methodPay={methodPay}
+            />
+          </>
         ))}
 
         <ProductsGridClient
@@ -33,3 +36,5 @@ export default function ProductsGrid({
     </section>
   );
 }
+
+
