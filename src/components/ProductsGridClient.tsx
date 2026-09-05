@@ -4,6 +4,7 @@ import { useState } from "react";
 import * as XLSX from "xlsx";
 import styles2 from "./ProductCard.module.css";
 import CreateProductModal from "./CreateProductModal";
+import { useSesion } from "@/hooks/useSesion";
 import { Product } from "@/types/product";
 
 export default function ProductsGridClient({
@@ -16,6 +17,7 @@ export default function ProductsGridClient({
   methodPay: { cashea: number };
 }) {
   const [openModal, setOpenModal] = useState(false);
+  const activo = useSesion();
 
   function downloadExcel() {
     const casheaPercent = Number(methodPay.cashea);
@@ -42,34 +44,38 @@ export default function ProductsGridClient({
   return (
     <>
       {/* Botón crear producto */}
-      <button
-        className={styles2.card}
-        onClick={() => setOpenModal(true)}
-        style={{ cursor: "pointer" }}
-      >
-        <div className={styles2.imageWrapper}>
-          <img src={"/image/plus.png"} alt={"add"} />
-        </div>
-        <div className={styles2.info}>
-          <h3 className={styles2.title}>Crear producto</h3>
-          <p className={styles2.price}>Añadir nuevo</p>
-        </div>
-      </button>
+      {activo &&
+        <button
+          className={styles2.card}
+          onClick={() => setOpenModal(true)}
+          style={{ cursor: "pointer" }}
+        >
+          <div className={styles2.imageWrapper}>
+            <img src={"/image/plus.png"} alt={"add"} />
+          </div>
+          <div className={styles2.info}>
+            <h3 className={styles2.title}>Crear producto</h3>
+            <p className={styles2.price}>Añadir nuevo</p>
+          </div>
+        </button>
+      }
 
       {/* Botón descargar Excel */}
-      <button
-        className={styles2.card}
-        onClick={downloadExcel}
-        style={{ cursor: "pointer" }}
-      >
-        <div className={styles2.imageWrapper}>
-          <img src={"/image/down.png"} alt={"add"} />
-        </div>
-        <div className={styles2.info}>
-          <h3 className={styles2.title}>Descargar Productos</h3>
-          <p className={styles2.price}>preparar descarga</p>
-        </div>
-      </button>
+      {activo &&
+        <button
+          className={styles2.card}
+          onClick={downloadExcel}
+          style={{ cursor: "pointer" }}
+        >
+          <div className={styles2.imageWrapper}>
+            <img src={"/image/down.png"} alt={"add"} />
+          </div>
+          <div className={styles2.info}>
+            <h3 className={styles2.title}>Descargar Productos</h3>
+            <p className={styles2.price}>preparar descarga</p>
+          </div>
+        </button>
+      }
 
       {/* Modal */}
       {openModal && (

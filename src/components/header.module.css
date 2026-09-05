@@ -110,3 +110,9 @@
   border-bottom: 1px solid;
   padding: 5px;
 }
+
+@media (min-width: 1024px) {
+  .navSidebar {
+    width: 35%;
+  }
+}

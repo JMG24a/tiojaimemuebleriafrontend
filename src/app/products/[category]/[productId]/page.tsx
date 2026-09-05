@@ -42,6 +42,7 @@ export default async function ProductPage({
 
   return (
     <ProductView
+      category={category}
       product={product}
       images={images}
       methodPay={methodPay}

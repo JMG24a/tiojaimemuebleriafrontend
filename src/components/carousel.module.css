@@ -80,3 +80,13 @@
   background: white;
   transform: scale(1.3);
 }
+
+@media (min-width: 1024px) {
+  .sliderAbout {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease; /* (8) Animación de entrada */
+  }
+}

@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
+import { useSesion } from "@/hooks/useSesion";
 import styles from "./productHero.module.css";
 
-export default function Hero({ category }: { category: string }) {
+export default function ProductHero({ category }: { category: string }) {
   const [portada, setPortada] = useState<string>("/fallback.jpg");
   const [id, setId] = useState<number>();
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+  const activo = useSesion();
   // ============================
   // 1. Cargar portada actual
   // ============================
@@ -126,21 +127,23 @@ export default function Hero({ category }: { category: string }) {
           {/* ============================
               Botón para cambiar portada
           ============================ */}
-          <button
-            onClick={openFilePicker}
-            style={{
-              marginTop: "20px",
-              padding: "10px 20px",
-              background: "#fff",
-              color: "#013565",
-              borderRadius: "6px",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "bold",
-            }}
-          >
-            Cambiar portada
-          </button>
+          {activo &&
+            <button
+              onClick={openFilePicker}
+              style={{
+                marginTop: "20px",
+                padding: "10px 20px",
+                background: "#fff",
+                color: "#013565",
+                borderRadius: "6px",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              Cambiar portada
+            </button>
+          }
 
           {/* Input oculto */}
           <input

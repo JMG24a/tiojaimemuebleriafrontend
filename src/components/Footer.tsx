@@ -83,7 +83,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <a className={styles.admin} href="/admin.html">
+        <a className={styles.admin} href="/login">
           © Mueblería Tio Jaime. Todos los derechos reservados.
         </a>
       </div>

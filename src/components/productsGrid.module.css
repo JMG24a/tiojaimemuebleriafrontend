@@ -82,3 +82,14 @@
     height: 190px;
   }
 }
+
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+  .furnitureGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .overlay h2 {
+    font-size: 2rem;
+  }
+}

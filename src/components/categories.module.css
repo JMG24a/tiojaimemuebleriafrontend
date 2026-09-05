@@ -42,7 +42,7 @@
 @media (min-width: 768px) {
   .categories {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 260px);
+    grid-template-rows: repeat(2, 145px);
     gap: 10px;
   }
 
@@ -61,7 +61,7 @@
 /* 💻 DESKTOP */
 @media (min-width: 1024px) {
   .categories {
-    grid-template-rows: repeat(2, 300px);
+    grid-template-rows: repeat(2, 200px);
   }
 
   .overlay h2 {

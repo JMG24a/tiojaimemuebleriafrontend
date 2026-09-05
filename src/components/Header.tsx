@@ -77,6 +77,7 @@ export default function Header() {
         </div>
 
         <nav className={styles.sidebarMenu}>
+          <a href="/">Inicio</a>
           <a href="/products/muebles">Muebles</a>
           <a href="/products/dormitorios">Dormitorios</a>
           <a href="/products/comedores">Comedores</a>
@@ -84,8 +85,7 @@ export default function Header() {
           <a href="/products/colchones">Colchones</a>
           <a href="/products/accesorios">Accesorios</a>
           <a href="/products/ofertas">Ofertas</a>
-          <a href="https://wa.me/584120521922">Contacto de ayuda</a>
-          <a href="https://wa.me/584120521922">Buzón de quejas</a>
+          <a href="https://wa.me/584120521922">Centro de Ayuda</a>
         </nav>
       </aside>
     </>
