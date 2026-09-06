@@ -50,7 +50,8 @@ export default function ProductHero({ category }: { category: string }) {
     formData.append("upload_preset", "ml_default");
 
     const cloudRes = await fetch(
-      "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
+      // "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
+      "https://api.cloudinary.com/v1_1/rgqgfmc8/image/upload", //second account
       {
         method: "POST",
         body: formData,

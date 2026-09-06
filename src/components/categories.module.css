@@ -41,7 +41,7 @@
 /* 📱 TABLET EN ADELANTE */
 @media (min-width: 768px) {
   .categories {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 145px);
     gap: 10px;
   }
@@ -52,10 +52,10 @@
   }
 
   /* Última categoría ocupa 2 filas y se queda en la columna 3 */
-  .category:last-child {
+  /* .category:last-child {
     grid-column: 4;
     grid-row: 1 / span 2;
-  }
+  } */
 }
 
 /* 💻 DESKTOP */

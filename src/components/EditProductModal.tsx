@@ -9,6 +9,7 @@ export default function EditProductModal({
   images,
   onClose
 }:{product: Product, images: string[], onClose: () => void}) {
+
   const [modelo, setModelo] = useState(product.modelo);
   const [precio, setPrecio] = useState(product.precio);
   const [descripcion, setDescripcion] = useState(product.descripcion);
@@ -29,6 +30,23 @@ export default function EditProductModal({
     setImageList(updated);
   }
 
+  async function uploadImage(file: File) {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default");
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/rgqgfmc8/image/upload",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+    const data = await res.json();
+    return data.secure_url as string;
+  }
+
   async function saveChanges() {
     const payload = {
       id: product.id,
@@ -37,7 +55,6 @@ export default function EditProductModal({
       descripcion,
       images: imageList.join("|")
     };
-    console.log("🚀 ~ saveChanges ~ payload:", payload)
 
     await fetch(`/api/products/${product.id}`, {
       method: "PUT",
@@ -63,15 +80,27 @@ export default function EditProductModal({
         <input
           type="number"
           value={precio}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setPrecio(Number(e.target.value))
-          }
+          onChange={(e) => setPrecio(Number(e.target.value))}
         />
 
         <label>Descripción</label>
         <textarea
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
+        />
+
+        {/* SUBIR IMAGEN */}
+        <label>Agregar nueva imagen</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+
+            const url = await uploadImage(file);
+            addImage(url);
+          }}
         />
 
         <label>Imágenes</label>
@@ -84,15 +113,11 @@ export default function EditProductModal({
                 <button onClick={() => removeImage(index)}>Eliminar</button>
 
                 {index > 0 && (
-                  <button onClick={() => moveImage(index, index - 1)}>
-                    ↑
-                  </button>
+                  <button onClick={() => moveImage(index, index - 1)}>↑</button>
                 )}
 
                 {index < imageList.length - 1 && (
-                  <button onClick={() => moveImage(index, index + 1)}>
-                    ↓
-                  </button>
+                  <button onClick={() => moveImage(index, index + 1)}>↓</button>
                 )}
               </div>
             </div>

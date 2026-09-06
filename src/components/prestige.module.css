@@ -3,7 +3,6 @@
   justify-content: space-around;
   gap: 20px;
   padding: 30px 20px;
-  background-color: #e5ded5;
   flex-wrap: wrap; /* ✔ permite que bajen en mobile */
 }
 

@@ -64,12 +64,11 @@ export default function ProductsGridGroup({
       {/* Vista agrupada */}
       {!selectedModel && (
         <>
-          {Object.keys(groups).map((model) => {
+          {Object.keys(groups).map((model, k) => {
             const firstProduct = groups[model][0];
-            const firstImage = getFirstImage(firstProduct);
-
             return (
               <article
+                key={k}
                 onClick={() => setSelectedModel(model)}
                 style={{ cursor: "pointer" }}
               >

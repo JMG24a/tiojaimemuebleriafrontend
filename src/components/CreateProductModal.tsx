@@ -35,7 +35,8 @@ export default function CreateProductModal({ onClose }: {
     data.append("upload_preset", "ml_default");
 
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
+      // "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
+      "https://api.cloudinary.com/v1_1/rgqgfmc8/image/upload",
       {
         method: "POST",
         body: data

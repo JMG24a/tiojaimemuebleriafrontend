@@ -39,11 +39,6 @@ export default function HomePage() {
             image: "/image/category_accesorios.jpg",
             category: "accesorios"
           },
-          {
-            title: "Ofertas",
-            image: "/image/promos.jpeg",
-            category: "ofertas"
-          }
         ]}
       />
 
