@@ -67,7 +67,7 @@ export default function ProductsGridGroup({
           >
             Volver
           </button>
-          <p style={{fontSize: "1.8rem"}}>Busca Tu Medida Ideal</p>
+          <p style={{fontSize: "1.5rem"}}>Busca Tu Medida Ideal</p>
         </div>
       )}
     <div className={styles.furnitureGrid}>
