@@ -11,7 +11,7 @@ export default function HomePage() {
         items={[
           {
             title: "Muebles",
-            image: "/image/category_sofas.jpg",
+            image: "/image/category_sofas3.jpg",
             category: "muebles"
           },
           {
@@ -21,12 +21,12 @@ export default function HomePage() {
           },
           {
             title: "Comedores",
-            image: "/image/category_comedores.jpg",
+            image: "/image/category_comedores2.png",
             category: "comedores"
           },
           {
             title: "Multimuebles",
-            image: "/image/mutimuebles_category.jpg",
+            image: "/image/category_mutimuebles.jpg",
             category: "multimuebles"
           },
           {
@@ -36,7 +36,7 @@ export default function HomePage() {
           },
           {
             title: "Accesorios",
-            image: "/image/category_accesorios.jpg",
+            image: "/image/category_accesorios2.jpg",
             category: "accesorios"
           },
         ]}

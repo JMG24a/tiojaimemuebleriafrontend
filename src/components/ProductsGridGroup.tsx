@@ -45,20 +45,30 @@ export default function ProductsGridGroup({
     <section className={styles.furnitureSection}>
       {/* Botón volver */}
       {selectedModel && (
-        <button
-          onClick={() => setSelectedModel(null)}
+        <div
           style={{
+            display: "flex",
+            justifyContent: "space-between",
             marginBottom: "20px",
-            padding: "10px 20px",
-            background: "#333",
-            color: "#fff",
-            borderRadius: "6px",
-            border: "none",
-            cursor: "pointer"
-          }}
-        >
-          Volver
-        </button>
+            padding: "0px 15px",
+            color: "#444",
+          }}>
+          <button
+            onClick={() => setSelectedModel(null)}
+            style={{
+              marginBottom: "20px",
+              padding: "10px 20px",
+              background: "#333",
+              color: "#fff",
+              borderRadius: "6px",
+              border: "none",
+              cursor: "pointer"
+            }}
+          >
+            Volver
+          </button>
+          <p style={{fontSize: "1.8rem"}}>Busca Tu Medida Ideal</p>
+        </div>
       )}
     <div className={styles.furnitureGrid}>
       {/* Vista agrupada */}

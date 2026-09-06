@@ -11,7 +11,7 @@
   border-radius: 5px;
   transition: transform 0.4s ease;
   width: auto;
-  height: 260px;
+  height: 350px;
 }
 
 .category img {
@@ -61,7 +61,7 @@
 /* 💻 DESKTOP */
 @media (min-width: 1024px) {
   .categories {
-    grid-template-rows: repeat(2, 200px);
+    grid-template-rows: repeat(2, 300px);
   }
 
   .overlay h2 {

@@ -84,7 +84,6 @@ export default function Header() {
           <a href="/products/multimuebles">Multimuebles</a>
           <a href="/products/colchones">Colchones</a>
           <a href="/products/accesorios">Accesorios</a>
-          <a href="/products/ofertas">Ofertas</a>
           <a href="https://wa.me/584120521922">Centro de Ayuda</a>
         </nav>
       </aside>
