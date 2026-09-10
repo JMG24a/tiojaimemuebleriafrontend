@@ -5,8 +5,22 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 import styles from "./productsGrid.module.css";
 
+
 function getBaseName(modelo: string) {
   return modelo.split(" ")[0].toLowerCase();
+}
+
+// elimina la palabra base (coco → individual)
+function removeBaseName(modelo: string) {
+  const parts = modelo.split(" ");
+  return parts.slice(1).join(" "); // todo menos la primera palabra
+}
+
+// elimina la variante (individual → coco)
+function removeVariantName(modelo: string) {
+  // return modelo.split(" ")[0]; // solo la primera palabra
+  const base = modelo.split(" ")[0];
+  return base.charAt(0).toUpperCase() + base.slice(1);
 }
 
 function groupProducts(products: Product[]) {
@@ -82,8 +96,18 @@ export default function ProductsGridGroup({
                 onClick={() => setSelectedModel(model)}
                 style={{ cursor: "pointer" }}
               >
-                <ProductCard
+                {/* <ProductCard
                   product={firstProduct}
+                  category={category}
+                  isGroupedView={true}
+                  methodPay={methodPay}
+                  showPrice={false}
+                /> */}
+                <ProductCard
+                  product={{
+                    ...firstProduct,
+                    modelo: removeVariantName(firstProduct.modelo) // ← solo “coco”
+                  }}
                   category={category}
                   isGroupedView={true}
                   methodPay={methodPay}
@@ -99,13 +123,24 @@ export default function ProductsGridGroup({
       {selectedModel && filtered && (
         <>
           {groups[selectedModel].map((product) => (
+            // <ProductCard
+            //   key={product.id}
+            //   product={product}
+            //   category={category}
+            //   isGroupedView={false}
+            //   methodPay={methodPay}
+            //   showPrice={true}   // ← mostrar precio
+            // />
             <ProductCard
               key={product.id}
-              product={product}
+              product={{
+                ...product,
+                modelo: removeBaseName(product.modelo) // ← “individual”, “matrimonial”, etc.
+              }}
               category={category}
               isGroupedView={false}
               methodPay={methodPay}
-              showPrice={true}   // ← mostrar precio
+              showPrice={true}
             />
           ))}
         </>

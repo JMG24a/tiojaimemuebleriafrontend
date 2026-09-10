@@ -17,9 +17,32 @@ export default function ProductsGridClient({
   methodPay: { cashea: number };
 }) {
   const [openModal, setOpenModal] = useState(false);
+  const [openDownloadMenu, setOpenDownloadMenu] = useState(false);
+
   const activo = useSesion();
 
-  function downloadExcel() {
+  function downloadDivisas() {
+    const rows = products.map((p) => {
+      const basePrice = Number(p.precio);
+
+      return {
+        id: p.id,
+        category: p.category,
+        modelo: p.modelo,
+        precio: basePrice, // ← precio base sin cashea
+        sku: p.sku,
+        images: p.images,
+        descripcion: p.descripcion
+      };
+    });
+
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Productos");
+    XLSX.writeFile(workbook, "productos-divisas.xlsx");
+  }
+
+  function downloadCashea() {
     const casheaPercent = Number(methodPay.cashea);
     const rows = products.map((p) => {
     const basePrice = Number(p.precio);
@@ -64,7 +87,7 @@ export default function ProductsGridClient({
       {activo &&
         <button
           className={styles2.card}
-          onClick={downloadExcel}
+          onClick={() => setOpenDownloadMenu(true)}
           style={{ cursor: "pointer" }}
         >
           <div className={styles2.imageWrapper}>
@@ -76,6 +99,43 @@ export default function ProductsGridClient({
           </div>
         </button>
       }
+
+
+      {openDownloadMenu && (
+        <div className={styles2.downloadMenu}>
+          <div className={styles2.menuBox}>
+            <h3>Selecciona el tipo de precio</h3>
+
+            <button
+              onClick={() => {
+                downloadCashea();
+                setOpenDownloadMenu(false);
+              }}
+              className={styles2.menuBtn}
+            >
+              Descargar en Cashea
+            </button>
+
+            <button
+              onClick={() => {
+                downloadDivisas();
+                setOpenDownloadMenu(false);
+              }}
+              className={styles2.menuBtn}
+            >
+              Descargar en Divisas
+            </button>
+
+            <button
+              onClick={() => setOpenDownloadMenu(false)}
+              className={styles2.closeBtn}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
+
 
       {/* Modal */}
       {openModal && (

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./createProductModal.module.css";
 import ExcelUpload from "./ExcelUpload";
+import ExcelUpdate from "./ExcelUpdate";
 
 export default function CreateProductModal({ onClose }: {
   onClose: () => void;
@@ -188,6 +189,12 @@ export default function CreateProductModal({ onClose }: {
           <h3>Carga Masiva</h3>
           <ExcelUpload />
         </div>
+
+        <div className={styles.excel}>
+          <h3>Actualización Masiva</h3>
+          <ExcelUpdate />
+        </div>
+
       </div>
     </div>
   );
