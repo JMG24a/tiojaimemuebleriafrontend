@@ -4,6 +4,7 @@ import { Product } from "@/types/product";
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import styles from "./productsGrid.module.css";
+import ProductsGridClient from "./ProductsGridClient";
 
 
 function getBaseName(modelo: string) {
@@ -84,10 +85,10 @@ export default function ProductsGridGroup({
           <p style={{fontSize: "1.5rem"}}>Busca Tu Medida Ideal</p>
         </div>
       )}
-    <div className={styles.furnitureGrid}>
+    <>
       {/* Vista agrupada */}
       {!selectedModel && (
-        <>
+        <div className={styles.furnitureGrid}>
           {Object.keys(groups).map((model, k) => {
             const firstProduct = groups[model][0];
             return (
@@ -116,13 +117,19 @@ export default function ProductsGridGroup({
               </article>
             );
           })}
-        </>
+
+          <ProductsGridClient
+            products={products}
+            category={category}
+            methodPay={methodPay}
+          />
+        </div>
       )}
 
       {/* Vista filtrada */}
       {selectedModel && filtered && (
-        <>
-          {groups[selectedModel].map((product) => (
+        <div className={styles.furnitureGrid}>
+          {groups[selectedModel].map((product, k) => (
             // <ProductCard
             //   key={product.id}
             //   product={product}
@@ -132,7 +139,7 @@ export default function ProductsGridGroup({
             //   showPrice={true}   // ← mostrar precio
             // />
             <ProductCard
-              key={product.id}
+              key={k}
               product={{
                 ...product,
                 modelo: removeBaseName(product.modelo) // ← “individual”, “matrimonial”, etc.
@@ -143,9 +150,15 @@ export default function ProductsGridGroup({
               showPrice={true}
             />
           ))}
-        </>
+
+          <ProductsGridClient
+            products={products}
+            category={category}
+            methodPay={methodPay}
+          />
+        </div>
       )};
-    </div>
+    </>
   </section>
   )
 }
