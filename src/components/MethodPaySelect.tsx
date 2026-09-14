@@ -24,6 +24,7 @@ export default function MethodPaySelect({
       label: "Cashea",
       percent: Number(methodPay.cashea),
       icon: "/image/cashea.jpg",
+      initialText: "0% inicial"   // ← NUEVO
     },
     {
       key: "decontado",
@@ -45,10 +46,7 @@ export default function MethodPaySelect({
     }
   ];
 
-  // Estado del dropdown
   const [open, setOpen] = useState(false);
-
-  // Estado del método seleccionado (por defecto Cashea)
   const [selected, setSelected] = useState(methods[0]);
 
   function getRealDiscount(percent: number) {
@@ -67,22 +65,25 @@ export default function MethodPaySelect({
 
   return (
     <div className={styles.wrapper}>
-      {/* SELECT TRIGGER */}
       <button
         className={styles.trigger}
         onClick={() => setOpen(!open)}
       >
         <img src={selected.icon} className={styles.icon} />
+
         <div className={styles.texts}>
           <span className={styles.label}>{selected.label}</span>
+
           <span className={styles.desc}>
-            {getRealDiscount(selected.percent)}% OFF
+            {selected.key === "cashea"
+              ? selected.initialText   // ← NUEVO
+              : `${getRealDiscount(selected.percent)}% OFF`}
           </span>
         </div>
+
         <span className={styles.arrow}>{open ? "▲" : "▼"}</span>
       </button>
 
-      {/* OPTIONS */}
       {open && (
         <div className={styles.options}>
           {methods.map((m) => (
@@ -98,7 +99,9 @@ export default function MethodPaySelect({
               </div>
 
               <span className={styles.percent}>
-                {getRealDiscount(m.percent)}% OFF
+                {m.key === "cashea"
+                  ? m.initialText
+                  : `${getRealDiscount(m.percent)}% OFF`}
               </span>
             </button>
           ))}
