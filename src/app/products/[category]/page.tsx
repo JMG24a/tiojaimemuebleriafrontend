@@ -38,7 +38,7 @@ export default async function CategoryPage({
   // ✔ Fetches normales, sin use()
   const methodPay = await getMethodPay();
   const products = await fetchProducts(category);
-  const isGrouped = category === "colchones" || category === "dormitorios";
+  const isGrouped = category === "colchones" || category === "dormitorios" || category === "accesorios";
   return (
     <>
       <ProductHero category={category} />

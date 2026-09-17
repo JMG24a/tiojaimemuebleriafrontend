@@ -1,5 +1,7 @@
 'use client';
 
+import { Product } from "@/types/product";
+
 const SIZES = {
   individual: "100cm x 190cm",
   matrimonial: "140cm x 190cm",
@@ -28,7 +30,7 @@ export function extractModelKey(name: string): SizeKey | null {
 
 export function getFeatures(
   category: string,
-  product: { modelo: string },
+  product: Product,
   price: number
 ): string[] {
   const modeloKey = extractModelKey(product.modelo);
@@ -41,7 +43,7 @@ export function getFeatures(
         `📄 Garantía de ${price > 500 ? 1 : 3} año.`,
         "🕓 30 días hábiles.",
         "📦 Embalaje sin cargo.",
-        "📏 240cm - 240cm",
+        `📏 ${product.size}`,
       ];
 
     case "dormitorios":

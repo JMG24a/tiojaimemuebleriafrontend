@@ -6,5 +6,6 @@ export type Product = {
   precio: number;
   sku: string;
   images: string;
+  size: string;
   descripcion: string;
 };

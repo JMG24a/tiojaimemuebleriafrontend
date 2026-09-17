@@ -16,7 +16,8 @@ export default function CreateProductModal({ onClose }: {
     precio: "",
     sku: "",
     images: "", // url|url|url
-    descripcion: ""
+    descripcion: "",
+    size: ""
   });
 
   const [imageList, setImageList] = useState<string[]>([]);
@@ -76,7 +77,8 @@ export default function CreateProductModal({ onClose }: {
         precio: Number(form.precio),
         sku: form.sku,
         images: form.images,
-        descripcion: form.descripcion
+        descripcion: form.descripcion,
+        size: form.size
       };
 
       const res = await fetch("https://tjm-web-back.onrender.com/products", {
@@ -134,6 +136,14 @@ export default function CreateProductModal({ onClose }: {
           name="sku"
           className={styles.input}
           value={form.sku}
+          onChange={handleChange}
+        />
+
+        <label className={styles.label}>Medida</label>
+        <textarea
+          name="size"
+          className={styles.textarea}
+          value={form.size}
           onChange={handleChange}
         />
 

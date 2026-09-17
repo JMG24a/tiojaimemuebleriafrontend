@@ -82,7 +82,7 @@ export default function ProductsGridGroup({
           >
             Volver
           </button>
-          <p style={{fontSize: "1.5rem"}}>Busca Tu Medida Ideal</p>
+          <p style={{fontSize: "1rem"}}>Busca Tu Medida Ideal</p>
         </div>
       )}
     <>

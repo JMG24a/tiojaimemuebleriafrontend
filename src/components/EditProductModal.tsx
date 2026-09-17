@@ -13,6 +13,7 @@ export default function EditProductModal({
   const [modelo, setModelo] = useState(product.modelo);
   const [precio, setPrecio] = useState(product.precio);
   const [descripcion, setDescripcion] = useState(product.descripcion);
+  const [size, setsize] = useState(product.size);
   const [imageList, setImageList] = useState(images);
 
   function addImage(url: string) {
@@ -53,6 +54,7 @@ export default function EditProductModal({
       modelo,
       precio,
       descripcion,
+      size,
       images: imageList.join("|")
     };
 
@@ -81,6 +83,12 @@ export default function EditProductModal({
           type="number"
           value={precio}
           onChange={(e) => setPrecio(Number(e.target.value))}
+        />
+
+        <label>Medidas</label>
+        <textarea
+          value={size}
+          onChange={(e) => setsize(e.target.value)}
         />
 
         <label>Descripción</label>
