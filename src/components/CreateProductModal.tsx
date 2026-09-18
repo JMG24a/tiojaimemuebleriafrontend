@@ -5,13 +5,14 @@ import styles from "./createProductModal.module.css";
 import ExcelUpload from "./ExcelUpload";
 import ExcelUpdate from "./ExcelUpdate";
 
-export default function CreateProductModal({ onClose }: {
+export default function CreateProductModal({ onClose, category }: {
   onClose: () => void;
+  category: string;
 }) {
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
-    category: "",
+    category: category,
     modelo: "",
     precio: "",
     sku: "",
@@ -105,14 +106,6 @@ export default function CreateProductModal({ onClose }: {
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <h2>Crear producto</h2>
-
-        <label className={styles.label}>Categoría</label>
-        <input
-          name="category"
-          className={styles.input}
-          value={form.category}
-          onChange={handleChange}
-        />
 
         <label className={styles.label}>Modelo</label>
         <input

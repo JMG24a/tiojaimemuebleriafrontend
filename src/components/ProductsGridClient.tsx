@@ -189,7 +189,7 @@ function downloadCashea() {
 
       {/* Modal */}
       {openModal && (
-        <CreateProductModal onClose={() => setOpenModal(false)} />
+        <CreateProductModal onClose={() => setOpenModal(false)} category={category}/>
       )}
     </>
   );
