@@ -9,8 +9,8 @@ const SIZES = {
   king: "200cm x 200cm",
 
   // comedores
-  4: "140cm x 180cm",
-  6: "160cm x 190cm",
+  4: "90cm x 90cm",
+  6: "150cm x 90cm",
 } as const;
 
 export type SizeKey = keyof typeof SIZES;
