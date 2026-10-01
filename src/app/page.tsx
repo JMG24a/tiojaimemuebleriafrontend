@@ -35,6 +35,11 @@ export default function HomePage() {
             category: "colchones"
           },
           {
+            title: "Oficinas",
+            image: "/image/oficina.png",
+            category: "oficinas"
+          },
+          {
             title: "Accesorios",
             image: "/image/category_accesorios2.jpg",
             category: "accesorios"
