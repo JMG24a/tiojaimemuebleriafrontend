@@ -11,7 +11,7 @@
   border-radius: 5px;
   transition: transform 0.4s ease;
   width: auto;
-  height: 350px;
+  height: 300px;
 }
 
 .category img {
@@ -52,16 +52,16 @@
   }
 
   /* Última categoría ocupa 2 filas y se queda en la columna 3 */
-  /* .category:last-child {
+  .category:last-child {
     grid-column: 4;
     grid-row: 1 / span 2;
-  } */
+  }
 }
 
 /* 💻 DESKTOP */
 @media (min-width: 1024px) {
   .categories {
-    grid-template-rows: repeat(2, 300px);
+    /* grid-template-rows: repeat(2, 300px); */
   }
 
   .overlay h2 {

@@ -47,10 +47,10 @@ export default function ProductViewClient({
   }, [price]);
 
   const sedes = [
-    { key: "San Pablo", label: "San Pablo", telefono: "584228463448", icon: "/image/location.jpg" },
-    { key: "San Felipe", label: "San Felipe", telefono: "584121539695", icon: "/image/location.jpg" },
-    { key: "Barquisimeto", label: "Barquisimeto", telefono: "584120213946", icon: "/image/location.jpg" },
-    { key: "Ciudad Ojeda", label: "Ciudad Ojeda", telefono: "584126158205", icon: "/image/location.jpg" }
+    { key: "San Pablo", label: "San Pablo", telefono: "584228463448", icon: "/image/googlemaps.png" },
+    { key: "San Felipe", label: "San Felipe", telefono: "584121539695", icon: "/image/googlemaps.png" },
+    { key: "Barquisimeto", label: "Barquisimeto", telefono: "584120213946", icon: "/image/googlemaps.png" },
+    { key: "Ciudad Ojeda", label: "Ciudad Ojeda", telefono: "584126158205", icon: "/image/googlemaps.png" }
   ];
 
   return (
