@@ -63,6 +63,11 @@ export default function Footer() {
                   <Image src="/image/whatsapp.png" alt="logo" width={24} height={24} />
                 </a>
 
+                <a href="https://wa.me/584223231881" className={styles.locationLink}>
+                  San Felipe Yaracuy
+                  <Image src="/image/whatsapp.png" alt="logo" width={24} height={24} />
+                </a>
+
                 <a href="https://wa.me/584120213946" className={styles.locationLink}>
                   Lara Barquisimeto
                   <Image src="/image/whatsapp.png" alt="logo" width={24} height={24} />

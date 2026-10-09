@@ -25,7 +25,7 @@ export default function ProductCard({
   onSelectModel?: () => void;
 }) {
   const img = product.images?.split("|")[0] ?? "/placeholder.png";
-  const src = cloudinaryUrl(img, 400, 70);
+  // const src = cloudinaryUrl(img, 400, 70);
 
   const base = Number(product.precio);
   const casheaPercent = Number(methodPay.cashea);
@@ -37,7 +37,7 @@ export default function ProductCard({
       <div className={styles.card} onClick={onSelectModel} style={{ cursor: "pointer" }}>
         <div className={styles.imageWrapper}>
           <Image
-            src={src}
+            src={img}
             alt={product.modelo}
             width={400}
             height={300}
@@ -57,7 +57,7 @@ export default function ProductCard({
     <Link href={`/products/${category}/${product.id}`} className={styles.card}>
       <div className={styles.imageWrapper}>
         <Image
-          src={src}
+          src={img}
           alt={product.modelo}
           width={400}
           height={300}

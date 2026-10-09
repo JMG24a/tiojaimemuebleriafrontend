@@ -48,7 +48,7 @@ export default function ProductViewClient({
 
   const sedes = [
     { key: "San Pablo", label: "San Pablo", telefono: "584228463448", icon: "/image/googlemaps.png" },
-    { key: "San Felipe", label: "San Felipe", telefono: "584121539695", icon: "/image/googlemaps.png" },
+    { key: "San Felipe", label: "San Felipe", telefono: "584223231881", icon: "/image/googlemaps.png" },
     { key: "Barquisimeto", label: "Barquisimeto", telefono: "584120213946", icon: "/image/googlemaps.png" },
     { key: "Ciudad Ojeda", label: "Ciudad Ojeda", telefono: "584126158205", icon: "/image/googlemaps.png" }
   ];

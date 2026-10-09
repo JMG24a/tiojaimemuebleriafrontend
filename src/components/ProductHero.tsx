@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSesion } from "@/hooks/useSesion";
 import styles from "./productHero.module.css";
+import { uploadToSupabase } from '@/utils/uploadImage'
 
 export default function ProductHero({ category }: { category: string }) {
   const [portada, setPortada] = useState<string>("/fallback.jpg");
@@ -44,24 +45,24 @@ export default function ProductHero({ category }: { category: string }) {
   // ============================
   // 2. Subir imagen a Cloudinary
   // ============================
-  async function uploadToCloudinary(file: File) {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "ml_default");
+  // async function uploadToCloudinary(file: File) {
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+  //   formData.append("upload_preset", "ml_default");
 
-    const cloudRes = await fetch(
-      // "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
-      "https://api.cloudinary.com/v1_1/rgqgfmc8/image/upload", //second account
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+  //   const cloudRes = await fetch(
+  //     // "https://api.cloudinary.com/v1_1/dmajdkimk/image/upload",
+  //     "https://api.cloudinary.com/v1_1/rgqgfmc8/image/upload", //second account
+  //     {
+  //       method: "POST",
+  //       body: formData,
+  //     }
+  //   );
 
-    const cloudData = await cloudRes.json();
-    console.log("🚀 ~ uploadToCloudinary ~ cloudData:", cloudData)
-    return cloudData.secure_url;
-  }
+  //   const cloudData = await cloudRes.json();
+  //   console.log("🚀 ~ uploadToCloudinary ~ cloudData:", cloudData)
+  //   return cloudData.secure_url;
+  // }
 
   // ============================
   // 3. PATCH al backend
@@ -85,7 +86,7 @@ export default function ProductHero({ category }: { category: string }) {
 
     try {
       // Subir a Cloudinary
-      const url = await uploadToCloudinary(file);
+      const url = await uploadToSupabase(file);
 
       // Actualizar backend
       await updateBackend(url);
