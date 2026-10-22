@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./editProductModal.module.css";
 import { Product } from "@/types/product";
+import { uploadToSupabase } from '@/utils/uploadImage'
 
 export default function EditProductModal({
   product,
@@ -106,7 +107,7 @@ export default function EditProductModal({
             const file = e.target.files?.[0];
             if (!file) return;
 
-            const url = await uploadImage(file);
+            const url = await uploadToSupabase(file);
             addImage(url);
           }}
         />

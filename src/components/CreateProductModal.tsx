@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./createProductModal.module.css";
 import ExcelUpload from "./ExcelUpload";
 import ExcelUpdate from "./ExcelUpdate";
+import { uploadToSupabase } from '@/utils/uploadImage'
 
 export default function CreateProductModal({ onClose, category }: {
   onClose: () => void;
@@ -56,7 +57,7 @@ export default function CreateProductModal({ onClose, category }: {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const url = await uploadImage(file);
+    const url = await uploadToSupabase(file);
 
     const updated = [...imageList, url];
     setImageList(updated);
